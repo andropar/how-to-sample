@@ -85,7 +85,7 @@ jupyter notebook OOD_accuracy_GMM_LAION.ipynb
 
 #### NSD fMRI validation
 ```bash
-python test_nsd_OOD_accuracy.py 
+python nsd_OOD_accuracy.py 
 python plot_nsd_OOD_results.py 
 ```
 
@@ -94,9 +94,9 @@ python plot_nsd_OOD_results.py
 Run sampling experiments:
 ```bash
 cd experiments/sampling
-bash scripts/3_test_sampling_gmm.sh
-bash scripts/3_test_sampling_laion.sh ⚠️
-bash scripts/3_test_sampling_nsd.sh
+bash scripts/sampling_gmm.sh
+bash scripts/sampling_laion.sh ⚠️
+bash scripts/sampling_nsd.sh
 ```
 
 Visualize results:

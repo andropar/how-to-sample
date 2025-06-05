@@ -40,7 +40,7 @@ def parse_args():
     parser.add_argument(
         "--base-analysis-dir",
         type=str,
-        default="experiments/laion/edopt_testing/outputs/3_test_diversity_nsd_sampling_clusterbased",
+        default="outputs/nsd_OOD_accuracy",
         help="Base directory containing the analysis output folders.",
     )
     return parser.parse_args()
