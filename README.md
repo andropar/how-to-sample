@@ -140,6 +140,4 @@ If you use this code or our photography classifier in your research, please cite
 Max Planck Institute for Human Cognitive and Brain Sciences  
 Email: jroth@cbs.mpg.de
 
-## License
 
-This project is developed for research purposes. The code is available for academic use. Please cite appropriately if using this code or the photography classifier in your work.
