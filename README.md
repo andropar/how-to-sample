@@ -1,4 +1,4 @@
-# How to Sample the World for Understanding the Visual System
+# How to sample the world for understanding the visual system
 This repository contains the code and experiments for the paper **"How to sample the world for understanding the visual system"**, published as a full paper in the [Computational and Cognitive Neuroscience (CCN) 2025](https://ccneuro.org/) proceedings.
 
 ## Abstract
@@ -6,7 +6,7 @@ Understanding vision requires capturing the vast diversity of the visual world w
 
 Here we used a subset of 120 million natural photographs filtered from LAION-2B - **LAION-natural** - as a proxy of the visual world in assessing visual-semantic coverage. Our analysis showed significant representational gaps in existing datasets (NSD, THINGS), demonstrating that they cover only a subset of the space spanned by LAION-natural. Importantly, our results suggest that even moderately sized stimulus sets can achieve strong generalization if they are sampled from a diverse stimulus pool, and that this diversity is more important than the specific sampling strategy employed.
 
-## Key Findings
+## Key findings
 1. **Coverage Gaps**: Existing large-scale neuroimaging datasets (NSD, THINGS) cover only ~50% of the visual-semantic (CLIP) space defined by LAION-natural
 2. **Diversity Matters**: Dataset diversity is more critical for out-of-distribution generalization than the specific sampling strategy used
 3. **Practical Scale**: Diverse stimulus sets of moderate size (5,000-10,000 images) can achieve strong generalization performance
@@ -26,7 +26,7 @@ pip install -e .
 pip install -r requirements.txt
 ```
 
-## Data Requirements
+## Data and compute requirements
 
 To reproduce the results, you will need to download the following datasets:
 - **LAION-2B**: Download from [LAION](https://laion.ai/blog/laion-5b/) (~2B image-text pairs)
@@ -35,9 +35,11 @@ To reproduce the results, you will need to download the following datasets:
 
 The experiment scripts expect all datasets to be in the `/data` directory (`data/laion2b`, `data/nsd`, `data/things`). 
 
-LAION-2B is required for some of the experiments - these are marked with a ⚠️. You can download LAION-2B using the img2dataset tool (see [here](https://github.com/rom1504/img2dataset) for instructions) with `output_format='files'`. After extracting CLIP features, you can then use the classifier `data/laion_natural_img_clf.pkl` to filter the images and obtain LAION-natural (this is done automatically in the scripts). 
+LAION-2B is required for some of the experiments - these are marked with a ⚠️. You can download LAION-2B using the img2dataset tool (see [here](https://github.com/rom1504/img2dataset) for instructions) with `output_format='files'`. This will create a large number of tar files in the `data/laion2b` directory - the scripts directly use them, so they don't need to be extracted. After creating CLIP image features, you can then use the classifier `data/laion_natural_img_clf.pkl` to filter all images and obtain LAION-natural. 
 
-## Reproducing Paper Results
+As the experiments can be computationally intensive (and the datasets are quite large), we recommend running them on a compute cluster. However, if this is not possible, you can still easily replicate the GMM-based simulations, as well as all NSD-based experiments (with single subject fMRI data).
+
+## Reproducing paper results
 First, extract CLIP features from all datasets:
 
 ```bash
@@ -124,15 +126,7 @@ jupyter notebook compare_concept_distributions.ipynb
 
 If you use this code or our photography classifier in your research, please cite:
 
-```bibtex
-@article{roth2025sampling,
-  title={How to sample the world for understanding the visual system},
-  author={Roth, Johannes and Hebart, Martin N.},
-  journal={Computational and Cognitive Neuroscience (CCN)},
-  year={2025},
-  institution={Max Planck Institute for Human Cognitive and Brain Sciences}
-}
-```
+[CITATION TBD]
 
 ## Contact
 
